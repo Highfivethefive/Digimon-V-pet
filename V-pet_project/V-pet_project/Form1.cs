@@ -33,11 +33,13 @@ namespace V_pet_project
             Canvas.Scale = 10;
             //function assign
             timer.Tick += timer_Tick;
-            _rendorBTN.MouseDown += btnrendor;
             timer.Interval = 1000;
+            _rendorBTN.MouseDown += btnrendor;
+            _2frameBTN.MouseDown += btn2frame;
+            _StopBTN.MouseDown += stopAnimation;
 
         }
-        //load an image
+        //load a single img
         private void btnrendor(object sender, MouseEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
@@ -51,9 +53,27 @@ namespace V_pet_project
             Canvas.Render();
             //timer.Start();
         }
+        //2 frame animation
+        private void btn2frame(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
 
-
-
+            //draw image
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                picture = new Bitmap(dlg.FileName, true);
+            }
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                picture2 = new Bitmap(dlg.FileName, true);
+            }
+            timer.Start();
+        }
+        //stop all animations 
+        private void stopAnimation(object sender, EventArgs e)
+        {
+            timer.Stop();
+        }
         //rendering for image 2 frames only atm
         private void timer_Tick(object sender, EventArgs e)
         {
