@@ -20,6 +20,8 @@ namespace V_pet_project
         Bitmap picture2 = null;
         Timer timer = new Timer();
         tog statusofmon = tog.alive;
+
+        //temp variables for cutting
         enum tog
         {
             alive, dead
@@ -75,14 +77,26 @@ namespace V_pet_project
         //cut img into a smaller img
         private void cutImg(object sender, MouseEventArgs e)
         {
+            int xvar = 0, yvar = 0;
+
             OpenFileDialog dlg = new OpenFileDialog();
             //draw image
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 picture = new Bitmap(dlg.FileName, true);
             }
-            Save_img(picture);
-            Canvas.Render();
+            for (int i=0;i < 17 ;i++)
+            {
+                Save_img(picture,xvar,yvar);
+                Canvas.Render();
+                //check for pixel area
+                xvar = xvar + 16;
+                if (xvar == 48)
+                {
+                    xvar = 0;
+                    yvar = yvar + 16;
+                }
+            }
         }
         ///
         //Functions to used inside of buttons
@@ -112,16 +126,16 @@ namespace V_pet_project
         //load individual img for rendoring on the canvas
 
         //Cut images and save them as seprate files
-        private void Save_img(Bitmap pic)
+        public void Save_img(Bitmap pic , int xpart, int ypart)
         {
             picture2 = new Bitmap(16,16);
             for (int i = 0; i < 16; i++) //width part
             {
                 for (int j = 0; j < 16; j++) //height
                 {
-                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i + 16, j));
+                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i +xpart,j + ypart));
 
-                    picture2.SetPixel(i,j,pic.GetPixel(i + 16,j));//set pixel on mapp
+                    picture2.SetPixel(i,j,pic.GetPixel(i +xpart,j +ypart));//set pixel on mapp
                 }
             }
             // save img
@@ -137,7 +151,6 @@ namespace V_pet_project
                 //picture2.Save("digimonrend.Bmp", ImageFormat.Bmp);
                 Console.WriteLine("Image saved to: " + sf.FileName);
             }
-
         }
         //load a single frame into the Canvas
         private void Load_img(Bitmap pic)
