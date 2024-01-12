@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +29,9 @@ namespace V_pet_project
             InitializeComponent();
             StartPosition = FormStartPosition.Manual;
             Location = new Point(100, 100);
-            Canvas = new CDrawer(360, 360, false, false); //canvas matched the bitmap size
+            Canvas = new CDrawer(320, 320, false, false); //canvas matched the bitmap size
             Canvas.Position = new Point(this.Location.X + this.Width, this.Location.Y);
-            Canvas.Scale = 10;
+            Canvas.Scale = 20;
             //function assign
             timer.Tick += timer_Tick;
             timer.Interval = 1000;
@@ -91,15 +92,26 @@ namespace V_pet_project
             Canvas.Render(); // draw every frame
         }
         //load individual img for rendoring on the canvas
+
+        //temp change to rip pictures into seprate pictures
         private void Load_img(Bitmap pic)
         {
-            for (int i = 0; i < pic.Width; i++) //width part
+            picture2 = new Bitmap(16,16);
+            for (int i = 0; i < 16; i++) //width part
             {
-                for (int j = 0; j < pic.Height; j++) //height
+                for (int j = 0; j < 16; j++) //height
                 {
                     Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i, j));
+                    picture2.SetPixel(i,j,Color.Black);//set pixel on mapp
                 }
             }
+            // save img
+            SaveFileDialog sf = new SaveFileDialog();
+            if(sf.ShowDialog() == DialogResult.OK)
+            {
+                picture2.Save("digimonrend.Bmp", ImageFormat.Gif);
+            }
+
         }
 
     }
