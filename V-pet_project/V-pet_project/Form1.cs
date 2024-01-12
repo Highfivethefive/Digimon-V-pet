@@ -47,46 +47,39 @@ namespace V_pet_project
             {
                 picture = new Bitmap(dlg.FileName, true);
             }
-            for (int i = 0; i < picture.Width; i++) //width part
-            {
-                for (int j = 0; j < picture.Height; j++) //height
-                {
-                    Canvas.SetBBScaledPixel(i, j, picture.GetPixel(i, j));
-                }
-            }
+            Load_img(picture);
             Canvas.Render();
             //timer.Start();
         }
 
 
 
-        //rendering for image
+        //rendering for image 2 frames only atm
         private void timer_Tick(object sender, EventArgs e)
         {
             if (statusofmon == tog.alive)
             {
                 //render picture
-                for (int i = 0; i < picture.Width; i++) //width part
-                {
-                    for (int j = 0; j < picture.Height; j++) //height
-                    {
-                        Canvas.SetBBScaledPixel(i, j, picture.GetPixel(i, j));
-                    }
-                }
+                Load_img(picture);
                 statusofmon = tog.dead;
             }
             else
             {
-                for (int i = 0; i < picture2.Width; i++) //width part
-                {
-                    for (int j = 0; j < picture2.Height; j++) //height
-                    {
-                        Canvas.SetBBScaledPixel(i, j, picture2.GetPixel(i, j));
-                    }
-                }
+                Load_img(picture2);
                 statusofmon = tog.alive;
             }
             Canvas.Render(); // draw every frame
+        }
+        //load individual img for rendoring on the canvas
+        private void Load_img(Bitmap pic)
+        {
+            for (int i = 0; i < pic.Width; i++) //width part
+            {
+                for (int j = 0; j < pic.Height; j++) //height
+                {
+                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i, j));
+                }
+            }
         }
 
     }
