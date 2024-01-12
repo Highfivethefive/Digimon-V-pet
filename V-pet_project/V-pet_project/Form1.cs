@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,7 @@ namespace V_pet_project
             _rendorBTN.MouseDown += btnrendor;
             _2frameBTN.MouseDown += btn2frame;
             _StopBTN.MouseDown += stopAnimation;
+            _SavImgBTN.MouseDown += cutImg;
 
         }
         //load a single img
@@ -70,6 +72,22 @@ namespace V_pet_project
             }
             timer.Start();
         }
+        //cut img into a smaller img
+        private void cutImg(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            //draw image
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                picture = new Bitmap(dlg.FileName, true);
+            }
+            Save_img(picture);
+            Canvas.Render();
+        }
+        ///
+        //Functions to used inside of buttons
+        //
+
         //stop all animations 
         private void stopAnimation(object sender, EventArgs e)
         {
@@ -93,16 +111,17 @@ namespace V_pet_project
         }
         //load individual img for rendoring on the canvas
 
-        //temp change to rip pictures into seprate pictures
-        private void Load_img(Bitmap pic)
+        //Cut images and save them as seprate files
+        private void Save_img(Bitmap pic)
         {
             picture2 = new Bitmap(16,16);
             for (int i = 0; i < 16; i++) //width part
             {
                 for (int j = 0; j < 16; j++) //height
                 {
-                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i, j));
-                    picture2.SetPixel(i,j,Color.Black);//set pixel on mapp
+                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i + 16, j));
+
+                    picture2.SetPixel(i,j,pic.GetPixel(i + 16,j));//set pixel on mapp
                 }
             }
             // save img
@@ -111,11 +130,26 @@ namespace V_pet_project
             sf.Title = "Save BMP File";
             if (sf.ShowDialog() == DialogResult.OK)
             {
-                picture2.Save("digimonrend.Bmp", ImageFormat.Bmp);
+                using (FileStream fs = new FileStream(sf.FileName, FileMode.Create))
+                {
+                    picture2.Save(fs, ImageFormat.Bmp);
+                }
+                //picture2.Save("digimonrend.Bmp", ImageFormat.Bmp);
                 Console.WriteLine("Image saved to: " + sf.FileName);
             }
 
         }
+        //load a single frame into the Canvas
+        private void Load_img(Bitmap pic)
+        {
+            for (int i = 0; i < 16; i++) //width part
+            {
+                for (int j = 0; j < 16; j++) //height
+                {
+                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i, j));
+                }
+            }
 
+        }
     }
 }
