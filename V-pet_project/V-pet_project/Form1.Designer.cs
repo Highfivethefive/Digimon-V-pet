@@ -28,13 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this._rendorBTN = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // _rendorBTN
+            // 
+            this._rendorBTN.Location = new System.Drawing.Point(12, 12);
+            this._rendorBTN.Name = "_rendorBTN";
+            this._rendorBTN.Size = new System.Drawing.Size(112, 23);
+            this._rendorBTN.TabIndex = 0;
+            this._rendorBTN.Text = "Rendor_digimon";
+            this._rendorBTN.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this._rendorBTN);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button _rendorBTN;
     }
 }
 
