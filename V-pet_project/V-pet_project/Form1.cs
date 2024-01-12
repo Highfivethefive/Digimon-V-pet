@@ -107,9 +107,12 @@ namespace V_pet_project
             }
             // save img
             SaveFileDialog sf = new SaveFileDialog();
-            if(sf.ShowDialog() == DialogResult.OK)
+            sf.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
+            sf.Title = "Save BMP File";
+            if (sf.ShowDialog() == DialogResult.OK)
             {
-                picture2.Save("digimonrend.Bmp", ImageFormat.Gif);
+                picture2.Save("digimonrend.Bmp", ImageFormat.Bmp);
+                Console.WriteLine("Image saved to: " + sf.FileName);
             }
 
         }
