@@ -1,4 +1,9 @@
-﻿using System;
+﻿//General info
+//Origional digivice is 16 by 32 across
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +37,8 @@ namespace V_pet_project
             InitializeComponent();
             StartPosition = FormStartPosition.Manual;
             Location = new Point(100, 100);
-            Canvas = new CDrawer(320, 320, false, false); //canvas matched the bitmap size
+            Canvas = new CDrawer(640, 320, false, false); //canvas matched the bitmap size
+            Canvas.BBColour = Color.White; //set back ground
             Canvas.Position = new Point(this.Location.X + this.Width, this.Location.Y);
             Canvas.Scale = 20;
             //function assign
@@ -153,13 +159,14 @@ namespace V_pet_project
             }
         }
         //load a single frame into the Canvas
+        //load is set to make it render in the middle
         private void Load_img(Bitmap pic)
         {
             for (int i = 0; i < 16; i++) //width part
             {
                 for (int j = 0; j < 16; j++) //height
                 {
-                    Canvas.SetBBScaledPixel(i, j, pic.GetPixel(i, j));
+                    Canvas.SetBBScaledPixel(i + 8, j, pic.GetPixel(i, j));
                 }
             }
 
