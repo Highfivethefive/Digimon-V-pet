@@ -20,6 +20,7 @@ namespace V_pet_project
 {
     public partial class Form1 : Form
     {
+        public int Alivetime = 0;
         CDrawer Canvas = null;
         Bitmap picture = null;
         Bitmap picture2 = null;
@@ -128,6 +129,8 @@ namespace V_pet_project
                 statusofmon = tog.alive;
             }
             Canvas.Render(); // draw every frame
+            Alivetime++;
+            _AliveLBL.Text = Alivetime.ToString();
         }
         //load individual img for rendoring on the canvas
 

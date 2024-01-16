@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this._rendorBTN = new System.Windows.Forms.Button();
             this._2frameBTN = new System.Windows.Forms.Button();
             this._StopBTN = new System.Windows.Forms.Button();
             this._SavImgBTN = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this._AliveLBL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _rendorBTN
@@ -70,11 +73,31 @@
             this._SavImgBTN.Text = "Cutimage/Sav";
             this._SavImgBTN.UseVisualStyleBackColor = true;
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // _AliveLBL
+            // 
+            this._AliveLBL.AutoSize = true;
+            this._AliveLBL.Location = new System.Drawing.Point(621, 70);
+            this._AliveLBL.Name = "_AliveLBL";
+            this._AliveLBL.Size = new System.Drawing.Size(30, 13);
+            this._AliveLBL.TabIndex = 4;
+            this._AliveLBL.Text = "Time";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this._AliveLBL);
             this.Controls.Add(this._SavImgBTN);
             this.Controls.Add(this._StopBTN);
             this.Controls.Add(this._2frameBTN);
@@ -82,6 +105,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -91,6 +115,8 @@
         private System.Windows.Forms.Button _2frameBTN;
         private System.Windows.Forms.Button _StopBTN;
         private System.Windows.Forms.Button _SavImgBTN;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label _AliveLBL;
     }
 }
 

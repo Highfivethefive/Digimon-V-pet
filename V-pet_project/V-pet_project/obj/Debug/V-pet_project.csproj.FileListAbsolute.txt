@@ -10,3 +10,15 @@ C:\Users\Jade\Desktop\V Pet project\Digimon-V-pet\V-pet_project\V-pet_project\bi
 C:\Users\Jade\Desktop\V Pet project\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.csproj.CopyComplete
 C:\Users\Jade\Desktop\V Pet project\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.exe
 C:\Users\Jade\Desktop\V Pet project\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.pdb
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\bin\Debug\V-pet_project.exe.config
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\bin\Debug\V-pet_project.exe
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\bin\Debug\V-pet_project.pdb
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\bin\Debug\GDIDrawer.dll
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.csproj.AssemblyReference.cache
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V_pet_project.Form1.resources
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V_pet_project.Properties.Resources.resources
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.csproj.GenerateResource.cache
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.csproj.CoreCompileInputs.cache
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.csproj.CopyComplete
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.exe
+C:\Users\Jwolfe20\Desktop\v-pet\Digimon-V-pet\V-pet_project\V-pet_project\obj\Debug\V-pet_project.pdb
